@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | SexualHarassmentCalc';
+const description = 'How the SexualHarassmentCalc estimator builds its educational range: damages components, Title VII employer-size caps, and state-law overlays.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology</h1>
+  <p><em>Reviewed by Devin Bertram (DB), Editor-in-Chief &mdash; EEOC Practice. Updated May 2026.</em></p>
+
+  <p>
+    The estimator is an educational tool, not a valuation model. It exists to give a reader a defensible answer to the question
+    &ldquo;what order of magnitude is this kind of case worth?&rdquo; so the reader walks into a free consultation with a lawyer
+    already knowing which questions matter. The math is deliberately transparent; the inputs deliberately broad.
+  </p>
+
+  <h2>Damages components recognized under Title VII</h2>
+  <p>
+    A successful Title VII sexual harassment plaintiff can recover four discrete categories of relief. The Civil Rights Act of 1991
+    added compensatory and punitive damages on top of the equitable remedies (back pay, front pay, reinstatement, injunctive relief)
+    that were available under the 1964 statute.
+  </p>
+  <ol>
+    <li>
+      <strong>Back pay.</strong> Wages, bonuses, commissions, and the dollar value of lost benefits from the adverse action through
+      the date of judgment or settlement, offset by interim earnings (the duty to mitigate). Back pay is equitable relief outside the
+      damages cap and is generally treated as wages for tax purposes.
+    </li>
+    <li>
+      <strong>Front pay.</strong> Future earnings the plaintiff would have received but for the unlawful conduct, where reinstatement
+      is impractical. Equitable, not always awarded, and not within the cap (<em>Pollard v. E.I. du Pont de Nemours &amp; Co.</em>, 532 U.S. 843 (2001)).
+    </li>
+    <li>
+      <strong>Compensatory damages.</strong> Out-of-pocket losses plus non-economic harm: emotional distress, mental anguish, loss of
+      enjoyment of life, medical and therapy costs, harm to professional reputation.
+    </li>
+    <li>
+      <strong>Punitive damages.</strong> Available only against private employers (not governments) and only on proof of malice or
+      reckless indifference to federally protected rights (<em>Kolstad v. American Dental Ass&rsquo;n</em>, 527 U.S. 526 (1999)).
+    </li>
+  </ol>
+
+  <h2>The 42 U.S.C. &sect; 1981a(b)(3) employer-size cap</h2>
+  <p>
+    Combined compensatory plus punitive damages under Title VII are capped by the employer&rsquo;s number of US employees in each of
+    20 or more calendar weeks of the current or preceding calendar year:
+  </p>
+  <ul>
+    <li><strong>15&ndash;100 employees:</strong> $50,000 combined cap.</li>
+    <li><strong>101&ndash;200 employees:</strong> $100,000 combined cap.</li>
+    <li><strong>201&ndash;500 employees:</strong> $200,000 combined cap.</li>
+    <li><strong>501+ employees:</strong> $300,000 combined cap.</li>
+  </ul>
+  <p>
+    These caps have not been raised for inflation since 1991. They are per-plaintiff, per-statute, not per-claim. Back pay, front pay,
+    and attorney fees fall outside the cap, which is why fee-shifting under 42 U.S.C. &sect; 2000e-5(k) often exceeds the damages award
+    in modest-employer cases.
+  </p>
+
+  <h2>State alternatives that uncap or expand recovery</h2>
+  <p>
+    The federal cap drives plaintiffs into parallel state claims wherever the state statute is more generous. The estimator widens
+    the upper range when the state field maps to one of the following.
+  </p>
+  <ul>
+    <li><strong>California FEHA (Gov. Code &sect; 12940 et seq.):</strong> no damages cap; 3-year filing window (AB 9, 2020); fee-shifting; covers employers with 5+ employees for harassment.</li>
+    <li><strong>New York Human Rights Law (Exec. Law &sect; 296):</strong> no damages cap as amended in 2019; covers all employers regardless of size for harassment; 3-year statute of limitations on sexual harassment (CPLR 214-g amendments).</li>
+    <li><strong>New Jersey LAD:</strong> no cap; broad emotional-distress recovery; punitive damages available.</li>
+    <li><strong>Illinois Human Rights Act:</strong> no cap as amended; covers employers with 1+ employee for harassment.</li>
+    <li><strong>Massachusetts G.L. c. 151B:</strong> no cap; treble back-pay availability in certain circumstances.</li>
+  </ul>
+
+  <h2>Worked example: hostile environment, mid-size employer, no termination</h2>
+  <p>
+    A 32-year-old marketing manager at a 300-employee private company in Texas reports two years of unwelcome sexual comments
+    and three propositions from her department head. She still works there. Annual income $80,000, three-year tenure.
+  </p>
+  <ul>
+    <li>Severity: severe (repeated, supervisor) &rarr; compensatory midpoint ~$175,000.</li>
+    <li>Claim type: hostile environment &rarr; multiplier 1.0.</li>
+    <li>No adverse employment action &rarr; back pay near $0.</li>
+    <li>Employer size 201&ndash;500 &rarr; $200,000 federal cap on combined comp + punitive.</li>
+    <li>Texas overlay: no FEHA-style uncapping. The federal cap controls.</li>
+  </ul>
+  <p>
+    Educational range output roughly $96,000&ndash;$290,000, with the high end approaching the statutory cap if punitive damages are
+    realistic. Real-world settlements in this profile cluster $75,000&ndash;$250,000, with the trial-risk premium nudging either direction
+    based on documentary evidence and the strength of the <em>Faragher</em>/<em>Ellerth</em> defense.
+  </p>
+
+  <h2>Worked example: quid pro quo with constructive discharge, large employer, California</h2>
+  <p>
+    A 28-year-old senior associate at a 2,000-employee firm in San Francisco refuses her partner&rsquo;s repeated propositions; her hours
+    are stripped, her reviews tank, she resigns four months later. Annual income $140,000, four-year tenure.
+  </p>
+  <ul>
+    <li>Severity: egregious (supervisor abuse of power) &rarr; compensatory midpoint ~$400,000.</li>
+    <li>Claim type: quid pro quo &rarr; multiplier 1.15.</li>
+    <li>Constructive discharge &rarr; back pay roughly one year salary plus mitigation discount &asymp; $105,000, plus modest front pay.</li>
+    <li>California: FEHA uncapped &mdash; no federal cap ceiling.</li>
+  </ul>
+  <p>
+    Educational range output roughly $310,000&ndash;$900,000. Real settlements in this profile, with documentary evidence, frequently
+    land $400,000&ndash;$1,200,000, plus fee-shifted attorney fees that can match or exceed the damages award.
+  </p>
+
+  <h2>What the estimator deliberately ignores</h2>
+  <p>
+    Jurisdiction-specific jury attitudes, the identity of opposing counsel, the employer&rsquo;s insurance posture, prior similar
+    settlements within the same company, the plaintiff&rsquo;s credibility on the stand, and the trial-risk premium each side prices
+    in privately. Those are the variables that actually move a case in mediation; none of them are knowable from a web form.
+  </p>
+
+  <h2>Sources and references</h2>
+  <ul>
+    <li>Title VII of the Civil Rights Act of 1964, 42 U.S.C. &sect; 2000e et seq.</li>
+    <li>Civil Rights Act of 1991, 42 U.S.C. &sect; 1981a (damages caps).</li>
+    <li>EEOC Compliance Manual, Section 615 (Harassment).</li>
+    <li><em>Meritor Savings Bank, FSB v. Vinson</em>, 477 U.S. 57 (1986).</li>
+    <li><em>Harris v. Forklift Systems, Inc.</em>, 510 U.S. 17 (1993).</li>
+    <li><em>Burlington Industries, Inc. v. Ellerth</em>, 524 U.S. 742 (1998).</li>
+    <li><em>Faragher v. City of Boca Raton</em>, 524 U.S. 775 (1998).</li>
+    <li><em>Pollard v. E.I. du Pont de Nemours &amp; Co.</em>, 532 U.S. 843 (2001).</li>
+    <li><em>Kolstad v. American Dental Ass&rsquo;n</em>, 527 U.S. 526 (1999).</li>
+  </ul>
+</BaseLayout>

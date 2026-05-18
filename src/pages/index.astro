@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Sexual Harassment Settlement Calculator | SexualHarassmentCalc';
+const description = 'Educational range estimator for workplace sexual harassment settlements under Title VII and state law. Reviewed by an EEOC-practice paralegal. Informational only.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Sexual Harassment Settlement Calculator</h1>
+  <p><em>Reviewed by Devin Bertram (DB), Editor-in-Chief &mdash; EEOC Practice. Updated May 2026.</em></p>
+
+  <p>
+    This calculator produces an <strong>educational range</strong> for a workplace sexual harassment claim under Title VII of the Civil Rights Act of 1964
+    (42 U.S.C. &sect; 2000e) and analogous state statutes such as California&rsquo;s FEHA, New York&rsquo;s NYHRL, and similar fair-employment laws. It is not
+    a settlement offer, a demand value, and not legal advice. Real recoveries depend on evidence, employer size, jurisdiction, the strength of the
+    employer&rsquo;s <em>Faragher</em>/<em>Ellerth</em> affirmative defense, mitigation efforts, and the trial risk both sides actually price in.
+  </p>
+
+  <form id="calc-form" autocomplete="off">
+    <label for="claim-type">Primary claim theory</label>
+    <select id="claim-type" name="claim-type" required>
+      <option value="quid-pro-quo">Quid pro quo (tangible job action tied to sexual demand)</option>
+      <option value="hostile-environment" selected>Hostile work environment (severe or pervasive)</option>
+      <option value="retaliation">Retaliation only (42 U.S.C. &sect; 2000e-3)</option>
+      <option value="both">Quid pro quo + hostile environment + retaliation</option>
+    </select>
+
+    <label for="severity">Severity of conduct</label>
+    <select id="severity" name="severity" required>
+      <option value="mild">Mild (offensive comments, isolated incidents)</option>
+      <option value="moderate" selected>Moderate (repeated unwanted conduct, no physical contact)</option>
+      <option value="severe">Severe (unwanted touching, threats, repeated propositions)</option>
+      <option value="egregious">Egregious (assault, supervisor abuse of power, multiple victims)</option>
+    </select>
+
+    <label for="employment-action">Adverse employment action</label>
+    <select id="employment-action" name="employment-action" required>
+      <option value="none" selected>None &mdash; still employed</option>
+      <option value="demotion">Demotion or pay cut</option>
+      <option value="constructive-discharge">Constructive discharge (forced resignation)</option>
+      <option value="termination">Termination</option>
+    </select>
+
+    <label for="employer-size">Employer size (US employees)</label>
+    <select id="employer-size" name="employer-size" required>
+      <option value="15-100">15&ndash;100 employees ($50,000 Title VII cap)</option>
+      <option value="101-500" selected>101&ndash;500 employees ($100,000&ndash;$200,000 cap)</option>
+      <option value="501-plus">501+ employees ($300,000 cap)</option>
+      <option value="federal">Federal employer or government contractor</option>
+    </select>
+
+    <label for="state">State (for state-law overlay, e.g., CA, NY)</label>
+    <input type="text" id="state" name="state" placeholder="e.g., California" value="California" />
+
+    <label for="annual-income">Annual income at time of harassment (USD)</label>
+    <input type="number" id="annual-income" name="annual-income" min="0" step="1000" value="65000" />
+
+    <label for="tenure-years">Tenure with employer (years)</label>
+    <input type="number" id="tenure-years" name="tenure-years" min="0" step="0.5" value="3" />
+
+    <button type="submit">Estimate range</button>
+  </form>
+
+  <p id="result" aria-live="polite"></p>
+
+  <h2>How the calculator works</h2>
+  <p>
+    The estimator blends four damages components recognized under Title VII and parallel state statutes, then applies the employer-size cap on
+    combined compensatory plus punitive damages set out at 42 U.S.C. &sect; 1981a(b)(3). State laws such as California FEHA do not impose those
+    caps, which is why the model gives a wider top-end range when the state field reads <em>California</em> or <em>New York</em>.
+  </p>
+  <ol>
+    <li><strong>Back pay</strong> &mdash; lost wages and benefits from the adverse action to settlement, reduced by mitigation income.</li>
+    <li><strong>Front pay</strong> &mdash; future lost earnings where reinstatement is impractical. Equitable, not always awarded.</li>
+    <li><strong>Compensatory damages</strong> &mdash; emotional distress, medical and therapy costs, reputational harm.</li>
+    <li><strong>Punitive damages</strong> &mdash; available where the employer acted with malice or reckless indifference to federally protected rights.</li>
+  </ol>
+
+  <h2>Compensation ranges by claim profile</h2>
+  <p>
+    Public verdict reporters and EEOC litigation summaries support the following ballpark settlement bands. Each is a midpoint of a wide distribution
+    &mdash; outliers exist in both directions.
+  </p>
+  <ul>
+    <li><strong>Hostile work environment, no termination:</strong> roughly <strong>$30,000&ndash;$200,000</strong>.</li>
+    <li><strong>Quid pro quo with demotion or constructive discharge:</strong> roughly <strong>$50,000&ndash;$500,000</strong>.</li>
+    <li><strong>Egregious supervisor misconduct, large employer, strong evidence:</strong> <strong>$200,000&ndash;$1,000,000+</strong>.</li>
+    <li><strong>Class or pattern-and-practice cases:</strong> seven and eight figures, often with injunctive relief.</li>
+  </ul>
+  <p>
+    Under Title VII, combined compensatory and punitive damages are capped by employer size: $50,000 (15&ndash;100 employees), $100,000 (101&ndash;200),
+    $200,000 (201&ndash;500), and $300,000 (501+). Back pay and attorney fees sit <em>outside</em> the cap, which is why fee-shifting under 42 U.S.C. &sect; 2000e-5(k)
+    can dwarf the damages award in well-litigated cases.
+  </p>
+
+  <h2>Factors that move the recovery up</h2>
+  <ul>
+    <li>Direct documentary evidence: texts, emails, recordings, contemporaneous notes, written witness statements.</li>
+    <li>Multiple victims or prior complaints on file with HR &mdash; pattern evidence weakens the <em>Faragher</em>/<em>Ellerth</em> defense.</li>
+    <li>Supervisor-perpetrator with tangible employment action (vicarious liability is strict; no affirmative defense available).</li>
+    <li>Constructive discharge or termination following a complaint &mdash; layers a retaliation claim on top.</li>
+    <li>State law without damages caps (California, New York, New Jersey, Illinois, and others).</li>
+    <li>Treating mental-health provider records documenting PTSD, anxiety, depression caused or aggravated by the conduct.</li>
+  </ul>
+
+  <h2>Factors that move the recovery down</h2>
+  <ul>
+    <li>Delayed reporting without a documented reason (fear of retaliation is a recognized reason; silence alone is not).</li>
+    <li>Plaintiff failed to use a reasonable internal complaint procedure that existed and was communicated.</li>
+    <li>Single, isolated incident that a court may find not &ldquo;severe or pervasive&rdquo; under <em>Harris v. Forklift Systems, Inc.</em>, 510 U.S. 17 (1993).</li>
+    <li>Coworker (not supervisor) perpetrator and prompt, effective employer response after notice.</li>
+    <li>Small employer below 15-employee Title VII threshold &mdash; only state law available, and some states match the 15-employee floor.</li>
+    <li>Signed severance with a valid general release (note: post-2022 Speak Out Act limits NDAs but does not void releases).</li>
+  </ul>
+
+  <h2>What this calculator is not</h2>
+  <p>
+    It is not a substitute for a free or low-cost intake with an employment plaintiff&rsquo;s attorney, an EEOC field office, or your state&rsquo;s fair-employment
+    agency. It does not value a specific case, predict jury behavior, or account for the trial-risk premium that drives most settlements. It does not
+    constitute legal advice and no attorney-client relationship is created by using it.
+  </p>
+
+  <h2>Time-sensitive considerations</h2>
+  <p>
+    Sexual harassment claims have <strong>short statutory deadlines</strong>. Missing an EEOC charge deadline can end the federal claim entirely.
+  </p>
+  <ul>
+    <li><strong>EEOC charge:</strong> 180 days from the last act of harassment, extended to <strong>300 days</strong> where a state or local fair-employment agency
+      handles the same conduct (most states).</li>
+    <li><strong>California FEHA:</strong> 3 years to file with the California Civil Rights Department (CRD) under AB 9 (2020), then 1 year to sue after right-to-sue.</li>
+    <li><strong>New York Human Rights Law:</strong> 3 years to file with NY Division of Human Rights or sue in court (extended in 2019 and 2022 amendments).</li>
+    <li><strong>Federal sector employees:</strong> 45 days to contact an EEO counselor &mdash; far shorter than the private-sector 180/300-day window.</li>
+  </ul>
+  <p>
+    Continuing-violation doctrine can pull older incidents into a timely charge when they are part of the same hostile-environment pattern
+    (<em>Nat&rsquo;l R.R. Passenger Corp. v. Morgan</em>, 536 U.S. 101 (2002)), but do not assume it applies. Talk to an attorney before any deadline passes.
+  </p>
+
+  <h2>Where to learn more</h2>
+  <ul>
+    <li><a href="/guides/how-sexual-harassment-settlements-are-calculated">How sexual harassment settlements are calculated</a></li>
+    <li><a href="/guides/types-of-workplace-harassment">Types of workplace harassment</a></li>
+    <li><a href="/guides/what-to-do-after-workplace-harassment">What to do after workplace harassment</a></li>
+    <li><a href="/guides/common-sexual-harassment-claim-misconceptions">Common sexual harassment claim misconceptions</a></li>
+  </ul>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('calc-form');
+      const result = document.getElementById('result');
+      if (!form || !result) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const claimType = data.get('claim-type');
+        const severity = data.get('severity');
+        const action = data.get('employment-action');
+        const size = data.get('employer-size');
+        const state = String(data.get('state') || '').trim().toLowerCase();
+        const income = Math.max(0, Number(data.get('annual-income')) || 0);
+        const tenure = Math.max(0, Number(data.get('tenure-years')) || 0);
+
+        // Base by severity (compensatory midpoint)
+        const severityBase = { mild: 25000, moderate: 75000, severe: 175000, egregious: 400000 }[severity] || 75000;
+
+        // Claim type multiplier
+        const claimMult = {
+          'quid-pro-quo': 1.15,
+          'hostile-environment': 1.0,
+          'retaliation': 0.85,
+          'both': 1.35,
+        }[claimType] || 1.0;
+
+        // Employment action: adds back/front pay estimate
+        let wageLoss = 0;
+        if (action === 'demotion') wageLoss = income * 0.20 * Math.min(2, 1 + tenure * 0.1);
+        if (action === 'constructive-discharge') wageLoss = income * 0.75 + income * 0.5 * Math.min(2, tenure * 0.15);
+        if (action === 'termination') wageLoss = income * 1.0 + income * 0.6 * Math.min(2, tenure * 0.15);
+
+        // Employer-size cap (combined comp + punitive under 42 USC 1981a(b)(3))
+        const capByFederal = { '15-100': 50000, '101-500': 150000, '501-plus': 300000, 'federal': 300000 }[size] || 150000;
+
+        // State uncap override
+        const uncapStates = ['california', 'ca', 'new york', 'ny', 'new jersey', 'nj', 'illinois', 'il', 'massachusetts', 'ma'];
+        const uncapped = uncapStates.some(function (s) { return state.indexOf(s) !== -1; });
+
+        // Compensatory + punitive component
+        let compPunitive = severityBase * claimMult;
+        if (!uncapped) compPunitive = Math.min(compPunitive, capByFederal);
+
+        const total = compPunitive + wageLoss;
+        const low = Math.round(total * 0.55 / 1000) * 1000;
+        const high = Math.round(total * 1.65 / 1000) * 1000;
+
+        const fmt = function (n) { return '$' + n.toLocaleString('en-US'); };
+
+        let note = '';
+        if (!uncapped && size === '15-100') note = ' Title VII caps combined compensatory and punitive damages at $50,000 for this employer size; back pay sits outside the cap.';
+        if (uncapped) note = ' State law overlay (e.g., California FEHA, NY HRL) typically removes the federal damages cap, widening the upper range.';
+        if (action === 'termination' || action === 'constructive-discharge') note += ' A termination-tied retaliation claim usually adds back-pay and emotional-distress weight.';
+
+        result.innerHTML = '<strong>Educational settlement range: ' + fmt(low) + ' to ' + fmt(high) + '.</strong>' + note + ' This is not legal advice and not an offer.';
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'How Sexual Harassment Settlements Are Calculated | SexualHarassmentCalc';
+const description = 'A practitioner-reviewed walkthrough of damages components, Title VII caps, state-law overlays, fee-shifting, and the duty to mitigate in workplace sexual harassment cases.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>How Sexual Harassment Settlements Are Calculated</h1>
+  <p><em>Reviewed by Devin Bertram (DB), Editor-in-Chief &mdash; EEOC Practice. Updated May 2026.</em></p>
+
+  <p>
+    Workplace sexual harassment settlements are not arbitrary &mdash; they are negotiated against a damages structure set by
+    Title VII of the Civil Rights Act of 1964, the Civil Rights Act of 1991, and parallel state statutes. Once you understand
+    the components, the employer-size caps, and the mitigation rules, you can read a settlement offer and tell whether it sits at,
+    above, or below the rational range for the case. This guide walks through each part.
+  </p>
+
+  <h2>The four damages components</h2>
+
+  <h3>Back pay</h3>
+  <p>
+    Back pay covers wages, bonuses, commissions, and the dollar value of lost benefits from the adverse employment action through
+    the date of judgment or settlement. It is equitable relief under 42 U.S.C. &sect; 2000e-5(g) and sits <em>outside</em> the
+    &sect; 1981a(b)(3) damages cap, which makes it the workhorse of high-tenure terminated-plaintiff cases. Two adjustments matter:
+  </p>
+  <ul>
+    <li><strong>Mitigation.</strong> The plaintiff has a duty to make reasonable efforts to find comparable work. Interim earnings offset back pay dollar-for-dollar. Failure to search reduces or eliminates back pay (<em>Ford Motor Co. v. EEOC</em>, 458 U.S. 219 (1982)).</li>
+    <li><strong>Prejudgment interest.</strong> Available in the court&rsquo;s discretion, calculated at the federal rate or the state-law equivalent. Often a meaningful add-on in older cases.</li>
+  </ul>
+
+  <h3>Front pay</h3>
+  <p>
+    Future earnings the plaintiff would have received but for the unlawful conduct, in lieu of reinstatement. Front pay is
+    equitable, not capped, and not always awarded. The Supreme Court confirmed in <em>Pollard v. E.I. du Pont de Nemours &amp; Co.</em>,
+    532 U.S. 843 (2001), that front pay sits outside the &sect; 1981a(b)(3) cap. Courts weigh:
+  </p>
+  <ul>
+    <li>Plaintiff&rsquo;s age and remaining work life.</li>
+    <li>Earnings differential at the new job, if any.</li>
+    <li>Reasonable likelihood of obtaining comparable employment.</li>
+    <li>The toxicity of the workplace (a strong factor against reinstatement, in favor of front pay).</li>
+  </ul>
+
+  <h3>Compensatory damages</h3>
+  <p>
+    Non-pecuniary harm: emotional distress, mental anguish, loss of enjoyment of life, inconvenience, loss of professional
+    reputation, plus out-of-pocket medical and therapy costs. The Civil Rights Act of 1991 added these to Title VII at
+    &sect; 1981a(a)(1). Compensatory damages are subject to the employer-size cap when combined with punitive damages.
+    Documentary support &mdash; a therapist&rsquo;s notes, a treating physician&rsquo;s diagnosis of PTSD or anxiety, medication
+    records &mdash; substantially affects the compensatory number.
+  </p>
+
+  <h3>Punitive damages</h3>
+  <p>
+    Available against private employers (not federal, state, or local governments) on proof of <em>malice</em> or
+    <em>reckless indifference</em> to the plaintiff&rsquo;s federally protected rights (<em>Kolstad v. American Dental Ass&rsquo;n</em>,
+    527 U.S. 526 (1999)). The standard is the employer&rsquo;s state of mind, not the egregiousness of the conduct alone. An
+    employer can sometimes defeat punitives by showing good-faith efforts to comply with Title VII through a published and
+    enforced anti-harassment policy.
+  </p>
+
+  <h2>The 42 U.S.C. &sect; 1981a(b)(3) employer-size cap</h2>
+  <p>
+    Combined compensatory plus punitive damages under Title VII are capped per plaintiff by the employer&rsquo;s number of US
+    employees in each of 20 or more calendar weeks of the current or preceding calendar year:
+  </p>
+  <ul>
+    <li><strong>15&ndash;100 employees:</strong> $50,000.</li>
+    <li><strong>101&ndash;200 employees:</strong> $100,000.</li>
+    <li><strong>201&ndash;500 employees:</strong> $200,000.</li>
+    <li><strong>501+ employees:</strong> $300,000.</li>
+  </ul>
+  <p>
+    The cap has not been adjusted for inflation since 1991. In 2026 dollars the $300,000 cap is worth roughly half of what it was
+    when enacted. This is the single most consequential limitation in federal employment-discrimination law and is the reason
+    sophisticated plaintiff&rsquo;s lawyers nearly always plead a state-law theory alongside Title VII where the state law is more generous.
+  </p>
+
+  <h2>State-law overlays that change the math</h2>
+  <p>
+    Several state statutes either remove the damages cap entirely, lower the employee-count threshold for coverage, or both.
+  </p>
+  <ul>
+    <li><strong>California FEHA</strong> (Gov. Code &sect; 12940 et seq.) &mdash; no cap; covers employers with 5+ employees (1+ for harassment); 3-year filing window with the Civil Rights Department.</li>
+    <li><strong>New York Human Rights Law</strong> (Exec. Law &sect; 296) &mdash; no cap as amended in 2019; covers all employers regardless of size for harassment; 3-year limitations period for sexual harassment claims.</li>
+    <li><strong>New Jersey LAD</strong> (N.J.S.A. 10:5-1 et seq.) &mdash; no cap; broad compensatory and punitive availability.</li>
+    <li><strong>Illinois Human Rights Act</strong> (775 ILCS 5/1-101 et seq.) &mdash; no cap as amended; covers all employers.</li>
+    <li><strong>Massachusetts G.L. c. 151B</strong> &mdash; no cap; treble back-pay availability in retaliation cases.</li>
+  </ul>
+  <p>
+    The settlement number for the same set of facts can differ by a factor of three or more depending on whether a state-law
+    overlay is available. This is why &ldquo;state&rdquo; is a meaningful input on the calculator.
+  </p>
+
+  <h2>Fee-shifting under 42 U.S.C. &sect; 2000e-5(k)</h2>
+  <p>
+    Title VII authorizes the court, in its discretion, to award reasonable attorney fees to a prevailing party. A prevailing
+    plaintiff is almost always entitled to fees; a prevailing employer rarely is (only on a showing the claim was frivolous,
+    unreasonable, or without foundation). In settlement, the employer effectively pays the plaintiff&rsquo;s reasonable fees on
+    top of the damages. In small-cap-employer cases, fee-shifting often exceeds the damages award.
+  </p>
+  <p>
+    State statutes have similar fee-shifting provisions, generally on the same lodestar (hours times rate, with multipliers
+    available) framework.
+  </p>
+
+  <h2>Worked example: hostile environment, 250-employee employer, Texas, no termination</h2>
+  <ul>
+    <li>Severity: severe (repeated, supervisor) &rarr; compensatory midpoint approximately $175,000.</li>
+    <li>No tangible adverse action &rarr; back pay near $0.</li>
+    <li>Employer 201&ndash;500 &rarr; $200,000 federal cap on combined comp + punitive.</li>
+    <li>Texas: no state-law overlay that uncaps.</li>
+    <li>Attorney fees recoverable separately, frequently $100,000&ndash;$300,000 by the time a case settles after charge and investigation.</li>
+  </ul>
+  <p>
+    Realistic settlement range $95,000&ndash;$280,000 on the damages side, plus fees. The cap drives the high end.
+  </p>
+
+  <h2>Worked example: quid pro quo, constructive discharge, 2,000-employee employer, California, $140,000 salary, 4-year tenure</h2>
+  <ul>
+    <li>Severity: egregious &rarr; compensatory midpoint approximately $400,000.</li>
+    <li>Quid pro quo with tangible action &rarr; vicarious liability, no <em>Faragher</em>/<em>Ellerth</em> defense.</li>
+    <li>Constructive discharge &rarr; back pay approximately one year salary minus mitigation, plus modest front pay (e.g., $100,000 net).</li>
+    <li>California FEHA &rarr; no damages cap.</li>
+    <li>Attorney fees recoverable.</li>
+  </ul>
+  <p>
+    Realistic settlement range $400,000&ndash;$1,200,000 on the damages side, with documentary evidence pulling toward the high end.
+    Fee-shifted attorney fees often match the damages award.
+  </p>
+
+  <h2>What the calculator deliberately does not model</h2>
+  <p>
+    Trial-risk premium, opposing-counsel reputation, prior settlements within the same company, the employer&rsquo;s insurance
+    carrier&rsquo;s appetite for trial, the plaintiff&rsquo;s credibility on the stand, and the location-specific jury attitudes
+    that materially affect settlement value. Those move cases in mediation; none are knowable from a web form. Use the calculator
+    to get the order of magnitude right, then talk to a lawyer.
+  </p>
+</BaseLayout>
