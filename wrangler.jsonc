@@ -2,6 +2,18 @@
   "name": "sexualharassmentcalc-com",
   "compatibility_date": "2026-05-18",
   "assets": {
+    "binding": "ASSETS",
     "directory": "./dist"
-  }
+  },
+  "main": "src/worker.ts",
+  "routes": [
+    {
+      "pattern": "sexualharassmentcalc.com/*",
+      "zone_name": "sexualharassmentcalc.com"
+    },
+    {
+      "pattern": "www.sexualharassmentcalc.com/*",
+      "zone_name": "sexualharassmentcalc.com"
+    }
+  ]
 }

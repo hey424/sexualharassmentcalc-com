@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadCapture from '../components/LeadCapture.astro';
 const title = 'Sexual Harassment Settlement Calculator | SexualHarassmentCalc';
 const description = 'Educational range estimator for workplace sexual harassment settlements under Title VII and state law. Reviewed by an EEOC-practice paralegal. Informational only.';
 ---
@@ -59,7 +60,10 @@ const description = 'Educational range estimator for workplace sexual harassment
     <button type="submit">Estimate range</button>
   </form>
 
-  <p id="result" aria-live="polite"></p>
+  
+
+  <LeadCapture caseType="sexual_harassment" caseTypeLabel="Sexual Harassment" />
+<p id="result" aria-live="polite"></p>
 
   <h2>How the calculator works</h2>
   <p>
@@ -136,10 +140,10 @@ const description = 'Educational range estimator for workplace sexual harassment
 
   <h2>Where to learn more</h2>
   <ul>
-    <li><a href="/guides/how-sexual-harassment-settlements-are-calculated">How sexual harassment settlements are calculated</a></li>
-    <li><a href="/guides/types-of-workplace-harassment">Types of workplace harassment</a></li>
-    <li><a href="/guides/what-to-do-after-workplace-harassment">What to do after workplace harassment</a></li>
-    <li><a href="/guides/common-sexual-harassment-claim-misconceptions">Common sexual harassment claim misconceptions</a></li>
+    <li><a href="/guides/how-sexual-harassment-settlements-are-calculated/">How sexual harassment settlements are calculated</a></li>
+    <li><a href="/guides/types-of-workplace-harassment/">Types of workplace harassment</a></li>
+    <li><a href="/guides/what-to-do-after-workplace-harassment/">What to do after workplace harassment</a></li>
+    <li><a href="/guides/common-sexual-harassment-claim-misconceptions/">Common sexual harassment claim misconceptions</a></li>
   </ul>
 
   <script is:inline>
